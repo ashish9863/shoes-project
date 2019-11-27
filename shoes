@@ -1,0 +1,41 @@
+select * from shoes
+select * from customersales
+select * from sys.objects
+where name like '%sales%'
+or name like '%shoes';
+
+ALTER TABLE dbo.shoes
+ALTER COLUMN price float NOT NULL;
+
+
+ALTER TABLE dbo.shoes
+ALTER COLUMN color nvarchar(225) NOT NULL;
+
+
+ALTER TABLE dbo.shoes
+ALTER COLUMN style nvarchar(225) NOT NULL;
+
+
+Alter Table shoes 
+Add constraint FK_Sales_Customers
+    Foreign Key (Color, Style, Brandname)
+	References customersales (Color, Style, Brandname)
+	ON DELETE CASCADE
+	ON UPDATE CASCADE
+
+
+
+
+
+ALTER TABLE dbo.shoes
+ALTER COLUMN brandname nvarchar(225) NOT NULL;
+
+
+ALTER TABLE dbo.shoes
+ADD CONSTRAINT PK_Product
+PRIMARY KEY (price, color, style, brandname);
+
+
+
+
+
